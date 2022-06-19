@@ -1,0 +1,198 @@
+<DOCTYPE html>
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="CSS">
+    <meta name="description" content="CSS基础">
+    <meta http-equiv="refresh" content="5,url=https://www.google.com">
+    <title>CSS基础</title>
+    <style type="text/css">
+        /* 标签选择器 */
+        div{color:red;width: 100px;height: 100px;}
+        /* id选择器 */
+        #box{color: brown;}
+        /* class选择器 */
+        .class{width: 100px;}
+        /* 后代选择器 */
+        #name p{color: #00ff00;}
+        /* 群组选择器 */
+        .cc,div,#c101{color: coral;}
+
+        /* 字体样式 */
+        #div1{
+            font-family: "Times New Roman",Arial,Verdana;
+            font-size: 16px;
+            font-weight: bold;
+        }
+        #div2{
+            font-family: "微软雅黑","宋体";
+            font-style: oblique;
+        }
+
+        /* 文本样式 */
+        .p1{
+            font-size: 14px;
+            text-indent: 28px;
+            text-align: center;
+            line-height: 15px;
+            letter-spacing: 0px;
+            word-spacing: 3px;
+        }
+        .p2{
+            text-decoration: line-through;
+            /* 还有underline,overline,none */
+            text-transform: capitalize;
+            /* 还有none,uppercase,lowercase */
+        }
+
+        /* 边框样式 */
+        div1{
+            border:1px solid red;
+            /* 或者写成: */
+            /* border-width:1px; */
+            /* border-style:solid; */
+            /* border-color:red; */
+
+            /* 局部边框：border-top,border-bottom,border-left,border-right */
+            /* 去除某边框是把border-width设置成0px */
+        }
+
+        /* 列表样式 */
+        ol{
+            list-style-type: lower-roman;
+            /* 有序列表还有decimal,upper-roman,lower-alpha,upper-aalpha */
+        }
+        ul{
+            list-style: circle;
+            /* 无序列表还有disc,square */
+        }
+        ol,ul{
+            list-style-type: none;
+        }
+        ul{
+            list-style-image: url(img/leaf.png);
+        }
+
+        /* 表格样式 */
+        table,th,td{
+            border:1px solid silver;
+        }
+        table{
+            border-collapse: collapse;
+        }
+        table{
+            border-spacing: 8px;
+        }
+
+        /* 图片样式 */
+        img{
+            border:1px solid red;
+            width:60px;
+            height:60px;
+            vertical-align: top; /*与文本顶端对齐*/
+            /* 还有bottom,middle,baseline */
+            float:left;
+        }
+
+        /* 超链接样式 */
+        a{
+            text-decoration: none;
+            color:red;
+        }
+        a:hover{
+            color:blue;
+            text-decoration: underline;
+        }
+        a:active{
+            color:coral;
+        }
+        a:visited{
+            color:cornflowerblue;
+        }
+
+        div:hover{
+            background-color: #00ff00;
+        }
+
+        /* 鼠标样式 */
+        #default{
+            cursor:default;
+        }
+        #pointer{
+            cursor:pointer;
+        }
+        #text{
+            cursor: text;
+        }
+        #def{
+            cursor: url(img/cursor/pointer.cur),default;
+        }
+
+        /* 背景样式 */
+        div{
+            background-color: hotpink;
+            color:red; /*p中是字体颜色*/
+        }
+
+        div{
+            width:100px;
+            height:100px;
+            border: 1px dashed red;
+            background-image: url(img/flower.png);
+            background-position: 40px 20px; /*或者top left,left center,bottom right*/
+        }
+        #div1{
+            background-repeat: repeat-x;
+            /* 还有repeat-y,no-repeat */
+        }
+
+        /* 浮动布局 */
+        #father{
+            width:300px;
+            background-color: #00ff00;
+            border: 1px solid red;
+        }
+        #father div{
+            padding:10px;
+            margin: 10px;
+            float:left;
+        }
+        .clear{
+            clear:both;
+        }
+
+        /* 定位布局 */
+        /* 固定定位（相对浏览器边框距离固定） */
+        #second{
+            position:fixed;
+            top:30px;
+            right:0px;
+            width:60px;
+            height:60px;
+            border: 1px solid red;
+            background-color: #00ff00;
+        }
+        /* 相对定位（相对原始位置的相对改变的定位） */
+        #son2{
+            position : relative;
+            top:20px;
+            left:40px;
+        }
+        /* 绝对定位 */
+        #son3{
+            position: absolute;
+            top:20px;
+            right:40px;
+        }
+    </style>
+    <script src="index.js">
+
+    </script>
+    <link type="text/css" rel="stylesheet" href="css/index.css">
+</head>
+<body>
+    <!-- 行内变换样式 -->
+    <div style="color:blue;">不一样的颜色</div>
+    <div class="content">通过类来变换样式</div>
+
+    <script src="index.js"></script>
+</body>

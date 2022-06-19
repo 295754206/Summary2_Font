@@ -1,0 +1,283 @@
+<!-- DOM基础 -->
+<!-- 获取元素 -->
+<head>
+    <meta charset="utf-8"/>
+    <script>
+        window.onload = function(){
+            let arr = ["A","B","C","D","E"];
+            // getElementByTagName()获取的节点可以制造函式，而getElementById()获取的节点不能创建函式
+            let oUl = document.getElementById("list");
+            let oLi = document.getElementsByTagName("li");
+            for(let i=0;i<oLi.length;i++){
+                oLi[i].innerHTML = arr[i];
+                oLi[i].style.color = "red";
+            }
+        }
+    </script>
+</head>
+<body>
+        <ul id="list">
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+</body>
+
+<head>
+    <meta charset="utf-8"/>
+    <script>
+        let oLi = document.getElementsByClassName("select");
+        oLi[0].style.color = "red";
+        let c = document.querySelector("#list li:nth-child(3)");
+        let d = document.querySelectorAll(".test input:checkbox");
+    </script>
+</head>
+<body>
+    <ul id="list">
+        <li></li>
+        <li></li>
+        <li class="select"></li>
+        <li class="select"></li>
+        <li class="select"></li>
+    </ul>
+</body>
+
+<head>
+    <meta charset="utf-8">
+    <script>
+        window.onload = function(){
+            var o = document.getElementsByName("status");
+            for(let i=0;i<o.length;i++){
+                o[i].checked = true;
+            } 
+        }
+    </script>
+</head>
+<body>
+    <input type="radio" name="status" vlaue="本科"/>本科
+    <input type="radio" name="status" vlaue="硕士"/>硕士
+    <input type="radio" name="status" vlaue="博士"/>博士
+</body>
+<!-- 创建元素 -->
+<head>
+    <meta charset="utf-8">
+    <script>
+        window.onload = function(){
+            // document.title和document.body.innerHTML
+            document.title = "测试";
+            docunemt.body.innerHTML = "<p>here!</p>";
+            // 创造无属性简单节点
+            let oDiv = document.getElementById("content");
+            let oStrong = document.createElement("strong");
+            let oText = document.createTextNode("输入内容文本");
+            oStrong.appendChild(oText);
+            oDiv.append(oStrong);
+            // 创造带属性复杂节点
+            let oInput = document.createElement("input");
+            oInput.id = "submit";
+            oInput.type = "button";
+            oInput.value = "提交";
+            document.body.appendChild(oInput);
+            // 创造图片
+            let oImg = document.createElement("img");
+            oImg.className = "pic";
+            oImg.src = "img/haizei.png";
+            // 插入元素
+            let oBtn = document.getElementById("btn");
+            oBtn.onclick = function(){
+                let bUl = document.getElementById("list");
+                let oTxt = document.getElementById("txt");
+                let textNode = document.createTextNode(oTxt.value);
+                let oLi = document.createElement("li");
+                oLi.appendChild(textNode);
+                // 后面加入
+                oUl.appendChild(oLi);
+                // 前面加入
+                oUl.insertBefore(oLi,oUl.firstElementChild);
+                // 删除最后一个元素
+                oUl.removeChild(oUl.lastElementChild);
+                // 整体删除
+                document.body.removeChild(oUl);
+                // 克隆并增加上去
+                document.body.appendChild(oUl.cloneNode(1));
+                // 替换元素
+                document.body.replaceChild(oNew,oFirst);
+            };
+        }
+    </script>
+</head>
+<body>
+    <div id="content"></div>
+
+    <ul id="list">
+        <li>HTML</li>
+        <li>CSS</li>
+        <li>JS</li>
+    </ul>
+    <input type="text" id="txt"/>
+    <input type="button" id="btn" value="插入"/>
+</body>
+
+
+
+
+<!-- DOM进阶 -->
+
+
+<!-- 获取属性节点的属性 -->
+
+<!-- 获取文本框的值 -->
+<script>
+    window.onload = function(){
+        let oBtn = docunment.getElementById("btn");
+        oBtn.onclick = function(){
+            let oTxt = document.getElementById("txt");
+            alert(oTxt.value);
+        }
+    }
+</script>
+
+<!-- 获取单选框的值 -->
+<script>
+    window.onload = function(){
+        let oBtn = document.getElementById("btn");
+        let oFruit = document.getElementsByName("fruit");
+        oBtn.onclick = function(){
+            for(let i=0;i<oFruit.length;i++){
+                if(oFruit[i].checked){
+                    alert(oFruit[i].value);
+                }
+            }
+        }
+    }
+</script>
+
+<!-- 获取下拉菜单的值 -->
+<script>
+    window.onload = function(){
+        let oBtn = document.getElementById("btn");
+        let oSelect = document.getElementById("select");
+        oBtn.onclick = function(){
+            alert(oSelect.value);
+        }
+    }
+</script>
+<body>
+    <select id="select">
+        <option value="beijing">beijing</option>
+        <option value="shanghai">shanghai</option>
+    </select>
+</body>
+
+<!-- 设置节点属性值 -->
+<script>
+    oBtn.onclick = function(){
+        if(flag){
+            oPic.scr = "img/1.png";
+            oBtn.value = "修改";
+            flag = false;
+        }else{
+            oPic.src = "img/2.png";
+            oBtn.vlaue = "按钮";
+            flag = true;
+        }
+    }
+</script>
+
+
+<!-- HTML属性操作 -->
+
+<!-- 获取某个属性的值 -->
+<script>
+    oBtn.getAttribute("id");// 此方法更通用，亦可获取到自定义的属性的值，如input标签里面自定义一个属性data="",则可以获取的到data的值
+    oBtn.id;// 此方法无法获取自定义属性的值
+    let c = document.getElementById("attr").value; // 获得文本框的输入值
+</script>
+
+<!-- 设置、移除某个属性的值 -->
+<script>
+    oBtn.setAttribute("value","button");    //属性+属性值
+    oBtn.value = "button";
+    oP[0].className = "main";
+    oBtn.removeAttribute("class");          //移除
+    oBtn.class = "";        //这样也可以达到移除效果
+</script>
+
+<!-- hasAttribute()结合使用于removeAtrribute() -->
+<script>
+    if(oP[0].hasAttribute("class")){
+        oP[0].onclick = function(){
+            oP[0].removeAttribute("class");
+        }
+    }
+</script>
+
+
+<!-- CSS属性操作 -->
+
+<!-- 获取CSS属性值 -->
+<style>
+    #box{
+        background-color: brown;
+    }
+</style>
+<script>
+    alert(getComputedStyle(oBox).backgroundColor);  // 不会直接使用oBox.style.backgroundColor,因为这种写法只能获得标签行内样式而无法获得内部或外部样式
+    alert(getComputedStyle(oBox)["backgroundColor"]);
+</script>
+
+<!-- 设置CSS属性 -->
+<script>
+    oBox.style.backgroundColor = "red";
+    oBox.style.border = "2px solid blue";
+    oDiv.style.cssText = "width:100px;height:100px;border:1px solid gray;"; // 综合写法
+    oTable.className = "newBox";
+</script>
+
+
+<!-- DOM遍历 -->
+<script>
+    // 寻找父节点
+    obj.parentNode;
+    
+    // 寻找子节点并展示长度
+    obj.childrenNodes.length;
+    obj.children.length;    // 除了节点外还包含所有空白转行节点（为文本节点）
+
+    // 删除元素节点
+    // 旧的做法
+    obtn.onclick = function(){
+        if(oul.lastChild.nodeType == 3){  // 如果是文本节点（空白转行）,则连续删2个
+            oul.removeChild(oul.lastChild);
+            oul.removeChild(oul.lastChild);
+        }else{
+            oul.removeChild(oul.lastChild);
+        }
+    }
+    // 新做法
+    oul.removeChild(oul.lastElementChild);
+ 
+    // 查找兄弟元素
+    obj.previousSibling;
+    obj.nextSilbling;
+    obj.previousElementSibling;
+    obj.nextElementSilbling;
+
+    // 创建新元素
+    let img = document.createElement("img");
+    img.className = "pic";
+    img.src = "imgs/haizei.png";
+    img.style.border = "1px solid silver";
+    document.body.appendChild(img);
+    // 用innerHTML来解决
+    document.body.innerHTML = "<>.....<>";
+
+    // 获取innerHTML和innerText
+    oP.innerHTML // 获取这个节点的HTML文本,<div>里面的但不包含<div>本身
+    oP.innerText // 获取这个节点的单纯文字的文本，不含标签文字
+</script>
+
+
+

@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="utf-8"/>
+    <meta name="keywords" content="HTML,CSS,JavaScript"/>
+    <meta name="description" content="这是前端基本书的学习"/>
+    <!-- <meta http-equiv="refresh" content="6,url=https://www.google.com"/>  -->
+    <title>HTML内容</title>
+    <style type="text/css">
+        
+    </style>
+    <script>
+
+    </script>
+    <link type="text/css" rel="stylesheet" href="css/index.css">
+</head>
+<body>
+    <!-- 这是第一部分 -->
+    <div>
+        <h3>这是标题</h3>
+        <p><strong><em>这是文章段落</em></strong></p>
+        <!-- 粗亦可用<b>,斜亦可用<i><cite> -->
+        <sup>2</sup>
+        <sub>2</sub>
+        <p><s>中划线效果</s></p>
+        <p><u>下划线效果</u></p>
+        <!-- <big>放大字体</big><br/> -->
+        <small>缩小字体</small><br/>
+        <hr/>
+    </div>
+    <!-- 这是第二部分 -->
+    <div>
+        <ol type="A">
+            <li>HTML</li>
+            <li>CSS</li>
+            <li>JS</li>
+        </ol>
+        <ul type="disc">
+            <!-- 还可以写circle,square -->
+            <li>vue</li>
+            <li>jquery</li>     
+            <li>node</li>   
+        </ul>
+        <!-- 自定义列表： -->
+        <dl>
+            <dt>HTML</dt>
+            <dd>这是HTML的描述内容</dd>
+            <dt>CSS</dt>
+            <dd>这是CSS的描述内容</dd>
+            <dt>JS</dt>
+            <dd>这是JS的描述内容</dd>
+        </dl>
+    </div>
+    <!-- 这是第三部分 -->
+    <table>
+        <caption>这是表格名称</caption>
+        <thead>
+            <tr>
+                <th>A</th>
+                <th>B</th>
+                <th>C</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>2</td>
+                <td>3</td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <td>4</td>
+                <td>5</td>
+                <td>6</td>
+            </tr>
+        </tfoot>
+    </table>
+        <!-- 行合并 -->
+    <table>
+        <tr>
+            <td>姓名</td>
+            <td>小明</td>
+        </tr>
+        <tr>
+            <td rowspan="2">喜欢水果</td>
+            <td>苹果</td>
+        </tr> 
+        <tr>
+            <td>香蕉</td>
+        </tr>
+    </table>
+        <!-- 列合并在<td>内写colspan -->
+    <!-- 这是第四部分 -->
+    <img src="../img/haizi.png" alt="原图为海贼王图片" title="海贼王之索隆"/>
+    <!-- 兄弟关系的目录打头 -->
+    <a href="https://www.google.com" target="_blank">文本或图片</a>
+    <!-- 如果是内部网页的话，其相对路径和图片写法一样 -->
+    <!-- 第五部分 -->
+    <!-- form标签 -->
+    <form name="单行、密码、多行文本框" action="index.php" method="POST">
+        姓名：<input type="text" value="这是原本文字" size="15" maxlength="20"/><br/>
+        <!-- size是框的长度，maxlength是最大输入字符数 -->
+        密码：<input type="password" size="15" maxlength="20"/><br/>
+        个人简介：<br/>
+        <textarea name="mytextarea" id="101" cols="30" rows="10" value="12345"></textarea>
+    </form>
+    <form name="单选框、复选框" action="index.php" method="POST">
+        性别：
+        <input type="radio" name="sex" value="男" checked />男
+        <input type="radio" name="sex" value="女" />女<br/>
+        年龄：
+        <input type="radio" name="age" value="80后" checked />80后
+        <input type="radio" name="age" value="90后" />90后
+        <input type="radio" name="age" value="00后" />00后
+
+        多选：
+        <input type="checkbox" name="fruit" value="苹果" checked/>苹果
+        <input type="checkbox" name="fruit" value="香蕉"/>香蕉
+        <input type="checkbox" name="fruit" value="李子" checked/>李子
+        <input type="checkbox" name="fruit" value="西瓜"/>西瓜<br/>
+    </form>
+    <form name="按钮" action="index.php" method="POST">
+        <input type="button" value="其他按钮"/>
+        <input type="submit" value="提交"/>
+        <input type="reset" value="重置"/>
+    </form>
+    <script>
+        window.onload = function(){
+            var oBTN =document.getElementByTagName("input");
+            oBTN[0].onclick = function(){
+                alert("I love HTML!");
+            }
+        }
+    </script>
+    <form name="文件上传、下拉列表" action="index.php" method="POST">
+        <select name="下拉列表" id="101" size="5" multiple>
+            <option value="1" selected>HTML</option>
+            <option value="2">CSS</option>
+            <option value="3">JS</option>
+            <option value="4">PHP</option>
+        </select>
+        <input type="file"/>
+        <!-- 形状为一个按钮 -->
+    </form>
+    <!-- 这是第六部分 -->
+    <iframe src="https://www.google.com" frameborder="0" width="200" height="150"></iframe>
+</body>
